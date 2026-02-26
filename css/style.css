@@ -1,0 +1,373 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap");
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url("../assets/fondo_Mixtico.png");
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #d9b44c;
+    overflow-x: hidden;
+}
+
+.portada {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(6, 6, 10, 0.55);
+}
+
+.portada__contenido {
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+}
+
+.portada__logo {
+    width: 340px;
+    max-width: 80%;
+    margin-bottom: 6px;
+}
+
+.portada__linea {
+    width: 210px;
+    height: 2px;
+    margin: 0 auto 14px;
+    background-color: #cfa83e;
+}
+
+.portada__ubicacion {
+    margin: 0;
+    font-size: 1.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.portada__usuario {
+    margin: 12px 0 28px;
+    font-size: 1.3rem;
+}
+
+.idiomas {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.idioma-btn {
+    width: 46px;
+    height: 46px;
+    border: 1px solid #cfa83e;
+    border-radius: 50%;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.idioma-btn:hover {
+    transform: translateY(-1px) scale(1.03);
+    border-color: #e0bf63;
+}
+
+.idioma-es {
+    background:
+        linear-gradient(
+            to bottom,
+            #0038a8 0%,
+            #0038a8 16%,
+            #ffffff 16%,
+            #ffffff 30%,
+            #ce1126 30%,
+            #ce1126 70%,
+            #ffffff 70%,
+            #ffffff 84%,
+            #0038a8 84%,
+            #0038a8 100%
+        );
+}
+
+.idioma-en {
+    background: repeating-linear-gradient(
+        to bottom,
+        #b22234 0,
+        #b22234 4.3px,
+        #ffffff 4.3px,
+        #ffffff 8.6px
+    );
+}
+
+.idioma-en::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 54%;
+    height: 54%;
+    background: #3c3b6e;
+}
+
+.idioma-fr {
+    background: linear-gradient(to right, #0055a4 0%, #0055a4 33.33%, #ffffff 33.33%, #ffffff 66.66%, #ef4135 66.66%, #ef4135 100%);
+}
+
+@media (max-width: 640px) {
+    .portada__ubicacion {
+        font-size: 1.6rem;
+    }
+
+    .portada__usuario {
+        font-size: 1.1rem;
+    }
+
+    .idioma-btn {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+body[data-page="menu"] {
+    background: #08090b;
+}
+
+.menu-page {
+    width: min(570px, 100vw, calc(100dvh * 0.75));
+    min-height: 100vh;
+    min-height: 100svh;
+    min-height: 100dvh;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 10px 8px;
+    background-image: url("../assets/fondo_platos_mixtico.png");
+    background-size: 100% 100%;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+.menu-card {
+    width: 100%;
+    padding: clamp(8px, 2vw, 12px) clamp(10px, 4.2vw, 24px) clamp(12px, 3vw, 18px);
+}
+
+.menu-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.menu-world {
+    color: #cfa83e;
+    text-decoration: none;
+    width: 28px;
+    height: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    line-height: 1;
+    transition: transform 0.2s ease;
+}
+
+.menu-world:hover {
+    transform: translateY(-1px);
+}
+
+.menu-title {
+    margin: 0 0 6px;
+    text-align: center;
+    color: #cfa83e;
+    font-size: clamp(3.1rem, 7vw, 5.1rem);
+    font-weight: 400;
+    font-family: "Great Vibes", cursive;
+}
+
+.menu-divider {
+    width: min(440px, 86%);
+    margin: 0 auto 12px;
+    border-bottom: 1px solid rgba(207, 168, 62, 0.35);
+}
+
+.menu-category-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 14px;
+    width: min(92%, 470px);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.menu-category-title {
+    margin: 0;
+    text-align: center;
+    min-width: 0;
+    max-width: 100%;
+    flex: 1;
+    color: rgba(207, 168, 62, 0.75);
+    font-size: clamp(1.05rem, 2.2vw, 1.7rem);
+    letter-spacing: 5px;
+    font-weight: 400;
+    font-family: "Montserrat", Arial, sans-serif;
+    text-transform: uppercase;
+    overflow-wrap: anywhere;
+}
+
+.category-arrow {
+    border: 1px solid rgba(207, 168, 62, 0.5);
+    background: transparent;
+    color: #cfa83e;
+    cursor: pointer;
+    width: 34px;
+    height: 34px;
+    flex: 0 0 34px;
+    border-radius: 50%;
+    font-size: 1rem;
+}
+
+.menu-container {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(8px, 1.8vw, 12px);
+    width: min(84%, 420px);
+    margin: 0 auto;
+    overflow: visible;
+}
+
+.dish-item {
+    text-align: center;
+}
+
+.dish-name {
+    margin: 0;
+    color: #d0ab4d;
+    font-family: "Cormorant Garamond", Georgia, 'Times New Roman', Times, serif;
+    font-size: clamp(1.55rem, 2.8vw, 2.1rem);
+    line-height: 1.08;
+    font-weight: 600;
+}
+
+.dish-ingredients {
+    margin: 4px 0 0;
+    color: #c8c5bf;
+    font-size: clamp(0.82rem, 1.7vw, 0.98rem);
+    line-height: 1.35;
+    font-family: "Montserrat", Arial, sans-serif;
+}
+
+.menu-loading,
+.menu-empty,
+.menu-error {
+    margin: auto;
+    text-align: center;
+    color: #d5c095;
+    font-size: 1rem;
+}
+
+.menu-footer {
+    margin-top: 18px;
+    width: min(88%, 450px);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer-line {
+    height: 5px;
+    border-top: 1px solid #cfa83e;
+    border-bottom: 1px solid #cfa83e;
+}
+
+.iva-text {
+    text-align: center;
+    color: #d7d2c8;
+    margin: 12px 0 0;
+    font-size: 1.02rem;
+    font-family: "Montserrat", Arial, sans-serif;
+}
+
+@media (max-width: 640px) {
+    .menu-page {
+        width: 100vw;
+        min-height: 100dvh;
+        padding: 10px 6px;
+    }
+
+    .menu-card {
+        padding: 12px 10px 14px;
+    }
+
+    .menu-title {
+        font-size: clamp(2.7rem, 13vw, 3.8rem);
+    }
+
+    .menu-category-title {
+        letter-spacing: 3px;
+        font-size: clamp(0.9rem, 3.9vw, 1.2rem);
+    }
+
+    .menu-category-row {
+        gap: 8px;
+    }
+
+    .category-arrow {
+        width: 30px;
+        height: 30px;
+    }
+
+    .menu-container {
+        gap: 8px;
+    }
+
+    .dish-name {
+        font-size: clamp(1.2rem, 5vw, 1.65rem);
+    }
+
+    .dish-ingredients {
+        font-size: clamp(0.74rem, 2.6vw, 0.9rem);
+    }
+
+    .iva-text {
+        font-size: 0.92rem;
+    }
+}
+
+@media (max-height: 760px) {
+    .menu-page {
+        padding-top: 8px;
+        padding-bottom: 10px;
+    }
+
+    .menu-title {
+        margin-bottom: 4px;
+        font-size: clamp(2.5rem, 7vh, 4rem);
+    }
+
+    .menu-divider {
+        margin-bottom: 8px;
+    }
+
+    .menu-category-row {
+        margin-bottom: 8px;
+    }
+
+    .menu-footer {
+        margin-top: 10px;
+    }
+}
