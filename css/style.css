@@ -65,6 +65,34 @@ body {
     justify-content: center;
 }
 
+.portada-cta {
+    margin-top: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.portada-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    border: 1px solid #cfa83e;
+    color: #e0bf63;
+    background: rgba(7, 7, 10, 0.45);
+    padding: 10px 14px;
+    border-radius: 999px;
+    font-size: 0.96rem;
+    letter-spacing: 0.4px;
+    transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.portada-cta-btn:hover {
+    transform: translateY(-1px);
+    border-color: #e0bf63;
+    background: rgba(7, 7, 10, 0.62);
+}
+
 .idioma-btn {
     width: 46px;
     height: 46px;
