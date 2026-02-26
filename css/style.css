@@ -65,6 +65,7 @@ body {
     justify-content: center;
 }
 
+<<<<<<< HEAD
 .portada-cta {
     margin-top: 18px;
     display: flex;
@@ -93,6 +94,8 @@ body {
     background: rgba(7, 7, 10, 0.62);
 }
 
+=======
+>>>>>>> c3cd4a377fc45de2252773fa7be480c835e14e66
 .idioma-btn {
     width: 46px;
     height: 46px;
@@ -166,6 +169,7 @@ body {
         width: 40px;
         height: 40px;
     }
+<<<<<<< HEAD
 
     .portada-cta {
         margin-top: 14px;
@@ -176,6 +180,8 @@ body {
         font-size: 0.9rem;
         padding: 9px 12px;
     }
+=======
+>>>>>>> c3cd4a377fc45de2252773fa7be480c835e14e66
 }
 
 body[data-page="menu"] {
