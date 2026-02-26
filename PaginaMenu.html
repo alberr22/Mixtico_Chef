@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Mixtico | Menu</title>
+	<link rel="stylesheet" href="./css/style.css">
+</head>
+<body data-page="menu">
+	<main class="menu-page">
+		<section class="menu-card">
+			<header class="menu-header">
+				<div class="menu-topbar">
+					<a class="menu-world" href="./index.html" aria-label="Ir a portada para cambiar idioma" title="Cambiar idioma">🌐</a>
+				</div>
+
+				<h1 class="menu-title">Menu</h1>
+				<div class="menu-divider"></div>
+
+				<div class="menu-category-row">
+					<button id="prevArrow" type="button" class="category-arrow" aria-label="Categoría anterior">&#10094;</button>
+					<h2 id="categoryTitle" class="menu-category-title"></h2>
+					<button id="nextArrow" type="button" class="category-arrow" aria-label="Categoría siguiente">&#10095;</button>
+				</div>
+			</header>
+
+			<section id="menuContainer" class="menu-container" aria-live="polite"></section>
+
+			<footer class="menu-footer">
+				<div class="footer-line"></div>
+				<p id="ivaText" class="iva-text">El precio mostrado incluye el 13% de IVA*</p>
+			</footer>
+		</section>
+	</main>
+
+	<script src="./js/app.js"></script>
+</body>
+</html>
