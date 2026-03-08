@@ -18,7 +18,7 @@ const TRANSLATIONS = {
 		error: "No se pudo cargar el menú.",
 		invalidEndpoint: "URL inválida: usa el enlace de Apps Script terminado en /exec.",
 		privateDeployment: "El Apps Script no es público. Publica la Web App para 'Cualquiera'.",
-		iva: "El precio mostrado incluye el 13% de IVA*",
+		iva: "Nuestros precios incluyen todos los impuestos",
 	},
 	en: {
 		loading: "Loading menu...",
@@ -26,7 +26,7 @@ const TRANSLATIONS = {
 		error: "Could not load menu.",
 		invalidEndpoint: "Invalid URL: use the Apps Script endpoint ending in /exec.",
 		privateDeployment: "The Apps Script is not public. Deploy the Web App for 'Anyone'.",
-		iva: "Displayed price includes 13% VAT*",
+		iva: "Our prices include all taxes.",
 	},
 	fr: {
 		loading: "Chargement du menu...",
@@ -34,7 +34,7 @@ const TRANSLATIONS = {
 		error: "Le menu n'a pas pu être chargé.",
 		invalidEndpoint: "URL invalide : utilisez le lien Apps Script qui se termine par /exec.",
 		privateDeployment: "Le script Apps n'est pas public. Déployez la Web App pour 'Tout le monde'.",
-		iva: "Le prix affiché inclut 13 % de TVA*",
+		iva: "Nos prix incluent toutes les taxes.",
 	},
 };
 
