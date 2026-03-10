@@ -310,6 +310,15 @@ body[data-page="menu"] {
     font-family: "Montserrat", Arial, sans-serif;
 }
 
+.dish-price {
+    margin: 6px 0 0;
+    color: #d0ab4d;
+    font-size: clamp(0.95rem, 2vw, 1.15rem);
+    font-weight: 500;
+    font-family: "Montserrat", Arial, sans-serif;
+    letter-spacing: 0.5px;
+}
+
 .menu-loading,
 .menu-empty,
 .menu-error {

@@ -236,6 +236,13 @@ function createDishElement(item) {
 		article.appendChild(description);
 	}
 
+	if (item.price > 0) {
+		const priceElement = document.createElement("p");
+		priceElement.className = "dish-price";
+		priceElement.textContent = `₡${item.price.toFixed(2)}`;
+		article.appendChild(priceElement);
+	}
+
 	return article;
 }
 
