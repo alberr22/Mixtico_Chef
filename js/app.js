@@ -1,6 +1,9 @@
 const SHEET_JSON_URL = "https://script.google.com/macros/s/AKfycbwFvBtiD-8qobeM5putIc9Q7N76HpjuyDCkVaLCkdEJTKaXF8j_l51YK2SdRtbKUaao/exec";
 const DEFAULT_LANG = "es";
 
+// Caché global para datos de idiomas
+const dataCache = {};
+
 const CATEGORY_ORDER = [
 	"desayunos",
 	"entrantes",
@@ -194,20 +197,49 @@ function bindLanguageButtons() {
 		}
 
 		button.dataset.bound = "1";
-		button.addEventListener("click", () => {
+		button.addEventListener("click", async () => {
 			const nextLang = normalizeText(button.dataset.lang);
 			if (!["es", "en", "fr"].includes(nextLang)) {
 				return;
 			}
 
-			state.lang = nextLang;
-			state.categories = buildCategories(state.rows, state.lang);
-			state.categoryIndex = 0;
+			if (nextLang === state.lang) {
+				return; // Mismo idioma, no hacer nada
+			}
 
-			setLanguageButtonsState();
-			updateIvaText();
-			updateUrl();
-			renderMenuItems();
+			state.lang = nextLang;
+
+			// Si ya tenemos datos en caché para este idioma, usarlos
+			if (dataCache[nextLang]) {
+				state.rows = dataCache[nextLang];
+				state.categories = buildCategories(state.rows, state.lang);
+				state.categoryIndex = 0;
+				setLanguageButtonsState();
+				updateIvaText();
+				updateUrl();
+				renderMenuItems();
+				// Precargar otros idiomas en background
+				prefetchOtherLanguages();
+			} else {
+				// No tenemos datos en caché, cargar con loader
+				setLoading();
+				try {
+					const rows = await loadRows();
+					dataCache[nextLang] = rows;
+					state.rows = rows;
+					state.categories = buildCategories(state.rows, state.lang);
+					state.categoryIndex = 0;
+					setLanguageButtonsState();
+					updateIvaText();
+					updateUrl();
+					renderMenuItems();
+					// Precargar otros idiomas en background
+					prefetchOtherLanguages();
+				} catch (error) {
+					console.error("Error cargando menú:", error);
+					setError(error);
+				}
+			}
 		});
 	});
 }
@@ -218,6 +250,23 @@ function updateIvaText() {
 		return;
 	}
 	ivaText.textContent = getDictionary().iva;
+}
+
+function prefetchOtherLanguages() {
+	// Precargar los otros idiomas en background sin bloquear la UI
+	["es", "en", "fr"].forEach(lang => {
+		if (lang !== state.lang && !dataCache[lang]) {
+			// Lanzar la carga en background sin await
+			loadRows()
+				.then(rows => {
+					dataCache[lang] = rows;
+					console.log(`Idioma precargado en background: ${lang}`);
+				})
+				.catch(err => {
+					console.error(`Error precargando idioma ${lang}:`, err);
+				});
+		}
+	});
 }
 
 function createDishElement(item) {
@@ -317,7 +366,7 @@ function setLoading() {
 	if (!container) {
 		return;
 	}
-	container.innerHTML = `<p class="menu-loading">${getDictionary().loading}</p>`;
+	container.innerHTML = `<div class="loader-spinner"><div class="spinner"></div></div>`;
 }
 
 function setError(error) {
@@ -346,10 +395,16 @@ async function boot() {
 
 	try {
 		state.rows = await loadRows();
+		// Guardar en caché para todos los idiomas (los datos contienen todos los idiomas)
+		["es", "en", "fr"].forEach(lang => {
+			dataCache[lang] = state.rows;
+		});
 		state.categories = buildCategories(state.rows, state.lang);
 		state.categoryIndex = Math.min(getInitialCategoryIndex(), Math.max(state.categories.length - 1, 0));
 		updateUrl();
 		renderMenuItems();
+		// Precargar otros idiomas en background
+		prefetchOtherLanguages();
 	} catch (error) {
 		console.error("Error cargando menú:", error);
 		setError(error);
