@@ -269,15 +269,24 @@ body[data-page="menu"] {
 }
 
 .category-arrow {
-    border: 1px solid rgba(207, 168, 62, 0.5);
-    background: transparent;
-    color: #cfa83e;
+    border: 3px solid #e0bf63;
+    background: rgba(207, 168, 62, 0.35);
+    color: #fff8dc;
     cursor: pointer;
     width: 34px;
     height: 34px;
     flex: 0 0 34px;
     border-radius: 50%;
     font-size: 1rem;
+    transition: all 0.2s ease;
+    font-weight: bold;
+}
+
+.category-arrow:hover {
+    background: rgba(207, 168, 62, 0.55);
+    border-color: #fff8dc;
+    transform: scale(1.15);
+    box-shadow: 0 0 8px rgba(224, 191, 99, 0.5);
 }
 
 .menu-container {
@@ -308,6 +317,15 @@ body[data-page="menu"] {
     font-size: clamp(0.82rem, 1.7vw, 0.98rem);
     line-height: 1.35;
     font-family: "Montserrat", Arial, sans-serif;
+}
+
+.dish-price {
+    margin: 6px 0 0;
+    color: #d0ab4d;
+    font-size: clamp(0.95rem, 2vw, 1.15rem);
+    font-weight: 500;
+    font-family: "Montserrat", Arial, sans-serif;
+    letter-spacing: 0.5px;
 }
 
 .menu-loading,
