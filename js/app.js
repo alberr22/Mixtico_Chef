@@ -7,11 +7,12 @@ const dataCache = {};
 const CATEGORY_ORDER = [
 	"desayunos",
 	"entrantes",
-	"platosfuertes",
+	"ensalada",
 	"casados",
+	"platosfuertes",
 	"postres",
+	"bebidas",
 	"cafe",
-	"vinos",
 ];
 
 const TRANSLATIONS = {
